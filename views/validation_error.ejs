@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTTP 400: Bad Request</title>
+  </head>
+  <body>
+    <h1>Validation Error</h1>
+    <ul>
+      <% errors.forEach(error => { %>
+      <li><%= error.instancePath %> <%= error.message %></li>
+      <% }); %>
+    </ul>
+    <a href="/shopping_list">Back to Shopping List</a>
+  </body>
+</html>

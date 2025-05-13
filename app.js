@@ -15,6 +15,22 @@ module.exports = async function (fastify, opts) {
     },
   });
 
+  fastify.register(require("@fastify/formbody"));
+
+  // Custom HTTP 400 error handler for validation
+  fastify.setErrorHandler((error, request, reply) => {
+    //Intercept HTTP 400 errors and display custom template
+    if (error.validation && error.statusCode === 400) {
+      return reply
+        .status(400)
+        .type("text/html")
+        .view("views/validation_error.ejs", { errors: error.validation });
+    }
+
+    // Handle all other errors
+    reply.send(error);
+  });
+
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins

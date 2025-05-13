@@ -1,0 +1,7 @@
+-- CreateTable
+CREATE TABLE "ShoppingListItem" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT NOT NULL,
+    "price" REAL NOT NULL,
+    "added" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

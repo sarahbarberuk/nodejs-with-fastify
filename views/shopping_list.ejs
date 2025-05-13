@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shopping List</title>
+  </head>
+  <body>
+    <h1>Shopping List</h1>
+
+    <h2>Current Shopping List Items:</h2>
+    <% if (items.length === 0) { %>
+    <p>No shopping list items yet.</p>
+    <% } else { %>
+    <ul>
+      <% items.forEach(item => { %>
+      <li><%= item.name %> - $<%= item.price %></li>
+      <% }); %>
+    </ul>
+    <% } %>
+
+    <h2>Add Item to Shopping List</h2>
+    <form method="POST" action="/shopping_list">
+      <label
+        >Item Name:
+        <input type="text" name="name" required /> </label
+      ><br />
+      <label
+        >Price:
+        <input type="number" name="price" step="0.01" required /> </label
+      ><br />
+      <button type="submit">Add to Shopping List</button>
+    </form>
+  </body>
+</html>
